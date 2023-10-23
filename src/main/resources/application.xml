@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--по умолчанию вызывается конструктор по умолчанию-->
-    <bean class="ru.egartech.database.pool.ConnectionPool"/>
-    <!--<bean class="ru.egartech.database.pool.ConnectionPool"/>-->
+    <bean id="pool1" name="p1,p2,p3"  class="ru.egartech.database.pool.ConnectionPool"/>
+    <bean id="pool2" name="p4" class="ru.egartech.database.pool.ConnectionPool"/>
 
 </beans>
