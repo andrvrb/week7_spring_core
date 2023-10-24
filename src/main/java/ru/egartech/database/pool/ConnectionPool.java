@@ -36,4 +36,7 @@ public class ConnectionPool  implements InitializingBean {
         System.out.println("Properties set");
     }
 
+    private void destroy() {
+        System.out.println("Clean connection pool");
+    }
 }

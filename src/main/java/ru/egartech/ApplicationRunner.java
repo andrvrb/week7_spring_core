@@ -6,12 +6,14 @@ import ru.egartech.database.repository.CompanyRepository;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
-        var context = new ClassPathXmlApplicationContext("application.xml");
+        // для destroy context должен закрываться явно
+        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
+            //      clazz -> String -> Map<String, Object>
+            var connectionPool = context.getBean("p1", ConnectionPool.class);
+            System.out.println(connectionPool);
 
-        var connectionPool = context.getBean("pool1", ConnectionPool.class);
-        System.out.println(connectionPool);
-
-        var companyRepository = context.getBean("companyRepository", CompanyRepository.class);
-        System.out.println(companyRepository);
+            var companyRepository = context.getBean("companyRepository", CompanyRepository.class);
+            System.out.println(companyRepository);
+        }
     }
 }
