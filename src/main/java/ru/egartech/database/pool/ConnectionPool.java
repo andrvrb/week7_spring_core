@@ -1,9 +1,11 @@
 package ru.egartech.database.pool;
 
+import org.springframework.beans.factory.InitializingBean;
+
 import java.util.List;
 import java.util.Map;
 
-public class ConnectionPool {
+public class ConnectionPool  implements InitializingBean {
     private final String username;
     private final Integer poolSize;
     private final List<Object> args;
@@ -22,4 +24,16 @@ public class ConnectionPool {
     public void setProperties(Map<String, Object> properties) {
         this.properties = properties;
     }
+
+    // вариант 1 (без параметров и void)
+    private void init() {
+        System.out.println("Init connection pool");
+    }
+
+    // вариант 2 (без параметров и void)
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Properties set");
+    }
+
 }
