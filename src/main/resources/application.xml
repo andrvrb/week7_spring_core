@@ -10,6 +10,8 @@
     <context:property-placeholder location="classpath:application.properties"/>
 
     <bean class="ru.egartech.bpp.InjectBeanPostProcessor"/>
+    <bean class="ru.egartech.bpp.TransactionBeanPostProcessor"/>
+    <bean class="ru.egartech.bpp.AuditingBeanPostProcessor"/>
 
     <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
