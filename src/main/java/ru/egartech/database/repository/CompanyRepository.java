@@ -3,6 +3,8 @@ package ru.egartech.database.repository;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import ru.egartech.bpp.Auditing;
 import ru.egartech.bpp.Transaction;
 import ru.egartech.database.entity.Company;
@@ -14,8 +16,10 @@ import java.util.Optional;
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-//   @Autowired
-    @Resource
+//    @Resource
+//    @Resource(name="pool1")
+    @Autowired
+    @Qualifier("pool1")
     private ConnectionPool connectionPool;
 
     @PostConstruct
