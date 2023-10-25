@@ -13,6 +13,10 @@
         <property name="locations" value="classpath:application.properties"/>
     </bean>-->
 
+    <!--этим двум бинам не назначаем id так как их не получаем из контекста-->
+    <bean class="ru.egartech.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="ru.egartech.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
