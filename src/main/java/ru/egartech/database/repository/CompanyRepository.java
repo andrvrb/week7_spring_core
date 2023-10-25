@@ -18,7 +18,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
 //    @Resource
 //    @Resource(name="pool1")
-    @Autowired
+//    @Autowired
 //    @Qualifier("pool1")
     private ConnectionPool pool1;
 
@@ -36,5 +36,10 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     @Override
     public void delete(Company entity) {
         System.out.println("delete method...");
+    }
+
+    @Autowired
+    public void setPool1(ConnectionPool pool1) {
+        this.pool1 = pool1;
     }
 }
