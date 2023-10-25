@@ -10,17 +10,17 @@ import ru.egartech.bpp.Transaction;
 import ru.egartech.database.entity.Company;
 import ru.egartech.database.pool.ConnectionPool;
 
+import java.util.List;
 import java.util.Optional;
 
 @Transaction
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-//    @Resource
-//    @Resource(name="pool1")
-//    @Autowired
-//    @Qualifier("pool1")
     private ConnectionPool pool1;
+
+    @Autowired
+    private List<ConnectionPool> pools;
 
     @PostConstruct
     private void init() {
