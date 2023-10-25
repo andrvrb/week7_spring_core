@@ -19,8 +19,8 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 //    @Resource
 //    @Resource(name="pool1")
     @Autowired
-    @Qualifier("pool1")
-    private ConnectionPool connectionPool;
+//    @Qualifier("pool1")
+    private ConnectionPool pool1;
 
     @PostConstruct
     private void init() {
