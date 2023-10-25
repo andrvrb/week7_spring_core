@@ -2,8 +2,8 @@ package ru.egartech.database.repository;
 
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import ru.egartech.bpp.Auditing;
-import ru.egartech.bpp.InjectBean;
 import ru.egartech.bpp.Transaction;
 import ru.egartech.database.entity.Company;
 import ru.egartech.database.pool.ConnectionPool;
@@ -14,7 +14,8 @@ import java.util.Optional;
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    @InjectBean
+//   @Autowired
+    @Resource
     private ConnectionPool connectionPool;
 
     @PostConstruct
