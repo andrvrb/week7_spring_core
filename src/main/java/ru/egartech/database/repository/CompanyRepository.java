@@ -6,6 +6,7 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 import ru.egartech.bpp.Auditing;
 import ru.egartech.bpp.Transaction;
 import ru.egartech.database.entity.Company;
@@ -14,17 +15,22 @@ import ru.egartech.database.pool.ConnectionPool;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 @Transaction
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    private ConnectionPool pool1;
+    private final ConnectionPool pool1;
+    private final List<ConnectionPool> pools;
+    private final Integer poolSize;
 
-    @Autowired
-    private List<ConnectionPool> pools;
-
-    @Value("${db.pool.size}")
-    private Integer poolSize;
+    public CompanyRepository(ConnectionPool pool1,
+                             List<ConnectionPool> pools,
+                             @Value("${db.pool.size}") Integer poolSize) {
+        this.pool1 = pool1;
+        this.pools = pools;
+        this.poolSize = poolSize;
+    }
 
     @PostConstruct
     private void init() {
@@ -42,8 +48,4 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
         System.out.println("delete method...");
     }
 
-    @Autowired
-    public void setPool1(ConnectionPool pool1) {
-        this.pool1 = pool1;
-    }
 }

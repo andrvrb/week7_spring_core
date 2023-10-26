@@ -1,16 +1,19 @@
 package ru.egartech.service;
 
 
-import ru.egartech.database.repository.CompanyRepository;
+import org.springframework.stereotype.Service;
+import ru.egartech.database.entity.Company;
+import ru.egartech.database.repository.CrudRepository;
 import ru.egartech.database.repository.UserRepository;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final CompanyRepository companyRepository;
+    private final CrudRepository<Integer, Company> companyRepository;
 
     public UserService(UserRepository userRepository,
-                       CompanyRepository companyRepository) {
+                       CrudRepository<Integer, Company> companyRepository) {
         this.userRepository = userRepository;
         this.companyRepository = companyRepository;
     }

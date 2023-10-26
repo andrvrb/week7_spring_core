@@ -2,44 +2,23 @@ package ru.egartech.database.pool;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
+@Component("pool1")
+public class ConnectionPool {
+    private final String username;
+    private final Integer poolSize;
 
-public class ConnectionPool  implements InitializingBean {
-    private String username;
-    private Integer poolSize;
-    private List<Object> args;
-    private Map<String, Object> properties;
-
-    public ConnectionPool(String username,
-                          Integer poolSize,
-                          List<Object> args,
-                          Map<String, Object> properties) {
+    public ConnectionPool(@Value("${db.username}") String username,
+                          @Value("${db.pool.size}") Integer poolSize) {
         this.username = username;
         this.poolSize = poolSize;
-        this.args = args;
-        this.properties = properties;
     }
 
-    public ConnectionPool() {
-    }
-
-    public void setProperties(Map<String, Object> properties) {
-        this.properties = properties;
-    }
-
-    // вариант 1 (без параметров и void)
     @PostConstruct
     private void init() {
         System.out.println("Init connection pool");
-    }
-
-    // вариант 2 (без параметров и void)
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Properties set");
     }
 
     @PreDestroy
