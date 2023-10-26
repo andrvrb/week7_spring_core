@@ -15,7 +15,7 @@ import ru.egartech.database.pool.ConnectionPool;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 @Transaction
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
