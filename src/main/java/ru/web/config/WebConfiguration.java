@@ -1,4 +1,4 @@
-package ru.egartech.config;
+package ru.web.config;
 
 import org.springframework.context.annotation.Configuration;
 
