@@ -15,7 +15,6 @@ public class ApplicationRunner {
             System.out.println(connectionPool);
 
             var companyRepository = context.getBean("companyRepository", CrudRepository.class);
-            var userRepository = context.getBean(UserRepository.class);
             System.out.println(companyRepository.findById(1));
         }
     }

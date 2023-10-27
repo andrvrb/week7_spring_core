@@ -11,7 +11,7 @@ import ru.egartech.database.repository.UserRepository;
 import ru.web.config.WebConfiguration;
 
 @Import(WebConfiguration.class)
-@Configuration
+@Configuration(proxyBeanMethods = true)
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "ru.egartech",
         useDefaultFilters = false,
@@ -29,7 +29,20 @@ public class ApplicationConfiguration {
         }
 
         @Bean
-        public UserRepository userRepository(ConnectionPool pool2) {
+        public ConnectionPool pool3() {
+                return new ConnectionPool("test-pool", 25);
+        }
+
+        @Bean
+        public UserRepository userRepository2(ConnectionPool pool2) {
                 return new UserRepository(pool2);
+        }
+
+        @Bean
+        public UserRepository userRepository3() {
+                var connectionPool1 = pool3();
+                var connectionPool2 = pool3();
+                var connectionPool3 = pool3();
+                return new UserRepository(pool3());
         }
 }
