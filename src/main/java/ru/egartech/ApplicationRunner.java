@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ru.egartech.config.ApplicationConfiguration;
 import ru.egartech.database.pool.ConnectionPool;
 import ru.egartech.database.repository.CrudRepository;
+import ru.egartech.database.repository.UserRepository;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class ApplicationRunner {
             System.out.println(connectionPool);
 
             var companyRepository = context.getBean("companyRepository", CrudRepository.class);
+            var userRepository = context.getBean(UserRepository.class);
             System.out.println(companyRepository.findById(1));
         }
     }

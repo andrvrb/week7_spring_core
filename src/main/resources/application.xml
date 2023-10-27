@@ -23,6 +23,4 @@
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
-    <bean id="companyRepository" class="ru.egartech.database.repository.CompanyRepository"/>
-
 </beans>
