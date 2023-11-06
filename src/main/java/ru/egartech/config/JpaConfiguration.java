@@ -13,11 +13,11 @@ import ru.egartech.config.condition.JpaCondition;
 @Configuration
 public class JpaConfiguration {
 
-    @Bean
-    @ConfigurationProperties(prefix = "db")
-    public DatabaseProperties databaseProperties() {
-        return new DatabaseProperties();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "db")
+//    public DatabaseProperties databaseProperties() {
+//        return new DatabaseProperties();
+//    }
     @PostConstruct
     void init() {
         System.out.println("Jpa configuration is enabled");

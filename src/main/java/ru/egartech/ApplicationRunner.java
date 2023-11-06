@@ -7,7 +7,7 @@ import ru.egartech.config.DatabaseProperties;
 
 
 @SpringBootApplication
-//@ConfigurationPropertiesScan
+@ConfigurationPropertiesScan
 public class ApplicationRunner {
 
     public static void main(String[] args) {
