@@ -12,14 +12,6 @@ import ru.web.config.WebConfiguration;
 
 @Import(WebConfiguration.class)
 @Configuration(proxyBeanMethods = true)
-@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = "ru.egartech",
-        useDefaultFilters = false,
-        includeFilters = {
-                @Filter(type = FilterType.ANNOTATION, value = Component.class),
-                @Filter(type = FilterType.ASSIGNABLE_TYPE, value = CrudRepository.class),
-                @Filter(type = FilterType.REGEX, pattern = "ru\\..+Repository")
-        })
 public class ApplicationConfiguration {
 
         @Bean("pool2")
