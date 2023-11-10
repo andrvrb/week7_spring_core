@@ -24,3 +24,6 @@ logging:
   level:
     root: WARN
     ru.egartech.database.pool: INFO
+  file:
+    name: egar-log.log
+    path: /
