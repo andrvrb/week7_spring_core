@@ -1,5 +1,6 @@
 package ru.egartech.integration.service;
 
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.boot.test.context.ConfigDataApplicationContextInitial
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestConstructor;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import ru.egartech.ApplicationRunner;
 import ru.egartech.config.DatabaseProperties;
@@ -18,15 +20,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @IT
+@RequiredArgsConstructor
+@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 //@ExtendWith(SpringExtension.class)
 //@ContextConfiguration(classes = ApplicationRunner.class, initializers = ConfigDataApplicationContextInitializer.class)
 public class CompanyServiceIT {
     private static final Integer COMPANY_ID = 1;
 
-    @Autowired
-    private CompanyService companyService;
-    @Autowired
-    private DatabaseProperties databaseProperties;
+    private final CompanyService companyService;
+    private final DatabaseProperties databaseProperties;
 
     @Test
     void findById() {
