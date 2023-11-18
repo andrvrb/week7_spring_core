@@ -1,4 +1,4 @@
-package ru.egartech.integration;
+package ru.egartech.integration.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,13 +11,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import ru.egartech.ApplicationRunner;
 import ru.egartech.config.DatabaseProperties;
 import ru.egartech.dto.CompanyReadDto;
+import ru.egartech.integration.annotation.IT;
 import ru.egartech.service.CompanyService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@IT
 //@ExtendWith(SpringExtension.class)
 //@ContextConfiguration(classes = ApplicationRunner.class, initializers = ConfigDataApplicationContextInitializer.class)
 public class CompanyServiceIT {
