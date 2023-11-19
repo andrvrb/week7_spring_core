@@ -2,6 +2,7 @@ package ru.egartech.integration.service;
 
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import ru.egartech.database.pool.ConnectionPool;
 import ru.egartech.integration.annotation.IT;
 import ru.egartech.service.UserService;
@@ -11,6 +12,7 @@ import ru.egartech.service.UserService;
 public class UserServiceIT {
 
     private final UserService userService;
+    @SpyBean(name = "pool1")
     private final ConnectionPool pool1;
 
 
