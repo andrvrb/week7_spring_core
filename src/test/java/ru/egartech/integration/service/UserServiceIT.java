@@ -1,19 +1,18 @@
 package ru.egartech.integration.service;
 
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import ru.egartech.database.pool.ConnectionPool;
+import ru.egartech.integration.annotation.IT;
 import ru.egartech.service.UserService;
 
-@SpringBootTest
+@IT
+@RequiredArgsConstructor
 public class UserServiceIT {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final ConnectionPool pool1;
 
-    @Autowired
-    private ConnectionPool pool1;
 
     @Test
     void test() {
