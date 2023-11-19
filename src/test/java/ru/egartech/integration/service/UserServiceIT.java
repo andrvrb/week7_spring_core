@@ -12,7 +12,6 @@ import ru.egartech.service.UserService;
 public class UserServiceIT {
 
     private final UserService userService;
-    @SpyBean(name = "pool1")
     private final ConnectionPool pool1;
 
 
